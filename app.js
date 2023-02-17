@@ -61,7 +61,7 @@ function loadRandomMovieDropdown() {
 	const randomMovieImg = document.querySelector('#random-movie-img');
 	const randomMovieTitle = document.querySelector('#random-movie-title');
 	const randomMOvieRating = document.querySelector('#random-movie-rating');
-	const RANDOM_URL = buildRandomURL();
+	const RANDOM_URL = buildRandomURL('http://www.omdbapi.com/?apikey=85055747&i=tt045214');
 	fetch(RANDOM_URL)
 		.then((res) => {
 			if (res.ok) {
