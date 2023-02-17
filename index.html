@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Fevicon -->
+	<link rel="icon" type="image/x-icon" href="/img/imdbLogo.png">
+	<title>IMDB search - MyIMDB Clone</title>
+	<!-- Import free Google fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:700&text=OMDb&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700&display=swap">
+	<!-- Fontawesome BootstrapCDN -->
+	<script src="https://kit.fontawesome.com/8f9dd9a975.js" crossorigin="anonymous"></script>
+	<!-- My Stylesheet -->
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<!-- The main wrapper for all content -->
+	<div id="main" class="main">
+		<nav>
+			<div class="logo">
+				<span>IMDB</span>
+			</div>
+
+			<div class="navbar">
+
+				<div class="nav-top">
+					<form class="search-form" action="">
+						<input type="search" name="search-box" id="search-box" placeholder="Find Movies, TV Shows and more...">
+						<select name="search-type" id="search-type">
+							<option value="all">All</option>
+							<option value="titles">Titles</option>
+							<option value="episode">TV Episodes</option>
+							<option value="series">Series</option>
+							<option value="imdbs">IMDb IDs</option>
+							<option value="advsearch">AdvancedSearch>></option>
+						</select>
+						<button type="submit" id="search-start">
+							<i class="fas fa-search"></i>
+						</button>
+					</form> <!-- search-form -->
+
+					<div class="nav-btm">
+						<div class="nav-drops">
+							<div class="v-spacer">.</div>
+							<div id="movies-tv-episodes" class="nav-drop nav-drop-1">
+								<button class="dropbtn">Menu
+									<i class="fa fa-caret-down"></i>
+								</button>
+								<div class="dropdown drop-1">
+									<div class="dropdown-text">
+										<img src="img/imdbLogo.png" alt="IMDB Logo Error" class="imdblogo">
+										<h5>Trending</h5>
+										<ul>
+											<li>Top 250 Movies</li>
+											<li>Most Popular Movies</li>
+											<li>Top 250 TV Shows</li>
+											<li>Most Popular TV Shows</li>
+											<li>Most Popular Podcasts</li>
+										</ul>
+									</div>
+									<div class="dropdown-text">
+											<h5>Show</h5>
+											<ul>
+												<li>IMDB picks</li>
+												<li>IMDB Podcasts</li>
+											</ul>
+											<h5>Movies</h5>
+										<ul>
+											<li>Release Calender</li>
+											<li>Brawse Movies</li>
+											<li>Top Box Office</li>
+											<li>Movie News</li>
+										</ul>
+									</div>
+									<div class="dropdown-img" id="random-movie">
+										<img src="" alt="" id="random-movie-img">
+										<div id="random-movie-footer">
+											<a href="#" id="random-movie-title"></a>
+											<a href="#" id="random-movie-rating"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div id="movies-tv-episodes" class="nav-drop nav-drop-1">
+								<button class="dropbtn">IMDB<span class="navpro">Pro</span>
+									<i class="fa fa-caret-down"></i>
+								</button>
+								<div class="dropdown drop-1">
+									<img src="img/imdb.png">
+								</div>
+							</div>
+
+						</div> <!-- nav-drops -->
+	
+						<button class="sign-in">Sign in</button>
+					</div> <!-- nav-btm -->
+
+					<div class="nav-top-other">
+						<div class="socials">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-twitch"></i></a>
+							<a href="#"><i class="fab fa-twitter"></i></a>
+							<a href="#"><i class="fab fa-youtube"></i></a>
+						</div> <!-- socials -->
+					</div> <!-- nav-top-other -->
+				</div> <!-- nav-top -->
+
+				
+
+			</div> <!-- navbar -->
+
+		</nav> <!-- nav -->
+
+		<!-- This contains some information before the user has sublitted a search -->
+		<div id="startup"></div>
+
+		<!-- This gets populated after the user has commited the search -->
+		<div id="results"></div>
+
+		<!-- The list of search results that pops up as soon as some results came back -->
+		<div id="realtime-search" class="realtime-search hidden"></div>
+
+		<!-- IMDB Trademark Text -->
+		<div class="tred">
+			<h1>IMDb Trademark Usage Guidelines</h1>
+			<p>These Guidelines apply to your use of Our Marks in materials that have been approved in advance
+				by IMDb.com, Inc. Strict compliance with these Guidelines is required at all times, and any use 
+				of Our Marks in violation of these Guidelines will automatically terminate any license related to 
+				your use of Our Marks. 1. You may use Our Marks solely for the purpose expressly authorized by us 
+				and your use must: (i) comply with the most up-to-date version of all agreement(s) with us regarding
+				 your use of any of Our Marks (collectively “Agreements”); (ii) comply with the most up-to-date version
+				  of these Guidelines; and (iii) comply with any other terms, conditions, or policies that we may issue
+				   from time to time that apply to the use of Our Marks. 2. We will supply an approved image of Our 
+				   Mark(s) for you to use. You may not alter Our Mark in any manner, including but not limited to, 
+				   changing the proportion, color, or font of Our Mark, or adding or removing any element(s) from Our 
+				   Mark. 3. You may not use Our Mark in any manner that implies sponsorship or endorsement by us other 
+				   than by using Our Mark as specifically authorized under the Agreements. 4. You may not use Our Mark(s)
+				    to disparage us, our products or services, or in a manner which, in our sole discretion, may diminish
+					 or otherwise damage or tarnish our goodwill in Our Marks. 5. Our Mark must appear by itself, with 
+					 reasonable spacing between each side of Our Mark and other visual, graphic or textual elements. 
+					 Under no circumstance should Our Mark be placed on any background which interferes with the 
+					 readability or display of Our Mark. 6. You must include the following statement in any materials 
+					 that display Our Mark: "IMDb, IMDb.COM, and the IMDb logo are trademarks of IMDb.com, Inc. or its 
+					 affiliates." 7. You acknowledge that all rights to Our Marks are our exclusive property, and all 
+					 goodwill generated through your use of Our Mark will inure to our benefit. You will not take any 
+					 action that is in conflict with our rights in, or ownership of, Our Marks. We reserve the right, 
+					 exercisable at our sole discretion, to modify these Guidelines or the approved versions of Our 
+					 Marks any time and to take appropriate action against any use without permission or any use that 
+					 does not conform to these Guidelines. If you have questions about these Guidelines, please contact 
+					 trademarks@amazon.com for assistance, or write to us at: IMDb.com, Inc., Attention: Trademarks, PO 
+					 Box 81226 Seattle, WA 98108-1226.</p>
+		</div>
+
+		<footer>
+			<div class="footer">
+				<!-- Sign in -->
+				<button class="footer-sign"><b>Sign in for more access</b></button>
+				<!-- media  -->
+				<div class="footer-media">
+					<a href="#"><i class="fa-brands fa-facebook md"></i></a>
+					<a href="#"><i class="fab fa-instagram md"></i></a>
+					<a href="#"><i class="fab fa-twitch md"></i></a>
+					<a href="#"><i class="fab fa-twitter md"></i></a>
+					<a href="#"><i class="fab fa-youtube md"></i></a>
+				</div>
+
+				<div class="footer-links">
+					<a href="#" class="lk">Get the IMDb App</a>
+					<a href="#" class="lk">Help</a>
+					<a href="#" class="lk">Site Index</a>
+					<a href="#" class="lk">IMDBPro</a>
+					<a href="#" class="lk">Box Office Mojo</a>
+					<a href="#" class="lk">IMDB Developer</a>
+				</div>
+				<div class="footer-links2">
+					<a href="#" class="lk">Press Room</a>
+					<a href="#" class="lk">Advertising</a>
+					<a href="#" class="lk">Jobs</a>
+					<a href="#" class="lk">Conditions of Use</a>
+					<a href="#" class="lk">Privacy Policy</a>
+					<a href="#" class="lk">Your Ads Privacy Choices</a>
+				</div>
+			</div>
+		</footer>
+	</div> <!-- main -->
+
+
+	<script src="app.js"></script>
+</body>
+</html>
