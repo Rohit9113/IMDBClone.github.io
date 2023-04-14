@@ -8,7 +8,7 @@ functionality for users.
 1. Search functionality.
 2. Related fisrts latter and show the total numbers of movies.
 3. Movie and TV show information pages.
-4. Display the movies's poster.
+4. Display the movies poster.
 5. User registration and login
 
 ## Screenshots
